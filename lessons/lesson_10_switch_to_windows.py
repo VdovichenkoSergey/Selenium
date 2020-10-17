@@ -30,5 +30,7 @@ print(driver.window_handles)  # IDs of all opened browser windows
 print(driver.current_window_handle)  # ID of current window
 
 driver.switch_to.window(driver.window_handles[1])
-time.sleep(2)
+time.sleep(1)
 driver.close()
+
+driver.switch_to.window(driver.window_handles[0])  # need to switch to corresponding window before you will do something

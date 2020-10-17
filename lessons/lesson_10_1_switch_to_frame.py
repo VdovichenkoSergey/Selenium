@@ -1,8 +1,5 @@
 from selenium import webdriver
-from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
 
 driver = webdriver.Chrome()
 driver.maximize_window()
@@ -12,5 +9,8 @@ driver.get('https://www.softaculous.com/softaculous/demos/Oxwall')
 frame = driver.find_element(By.NAME, "demoheader")
 driver.switch_to.frame(frame)
 
-sign_in = driver.find_element(By.ID, "adminurl")
-sign_in.click()
+frame1 = driver.find_element(By.ID, "adminurl")
+frame1.click()
+
+driver.switch_to.parent_frame()  # switch to frame on one level higher
+# driver.switch_to.default_content()  # switch to frame on the highest level
